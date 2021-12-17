@@ -4,11 +4,11 @@
   # vars in group_vars/demo/vars.yml
   # vars_files:
   #   - ./my_vars.yml
-    tasks:
-      - name: Create user
-        # vars:
-        #   user: av2
-        user:
-          name: "{{ user }}"
-          state: present
-        become: true  
+  tasks:
+    - name: Create user
+      # vars:
+      #   user: av2
+      user:
+        name: "{{ user }}"
+        state: present
+      become: true  
