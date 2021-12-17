@@ -1,6 +1,7 @@
 ---
 - name: user
   hosts: demo
+  # vars in group_vars/demo/vars.yml
   # vars_files:
   #   - ./my_vars.yml
   tasks:
