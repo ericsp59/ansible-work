@@ -13,7 +13,7 @@
       block:
         - name: Create user
           vars:
-            user: av3
+            user: av2
           user:
             name: "{{ user }}"
             state: absent
@@ -41,7 +41,7 @@
       always:
         - name: Reboot
           debug:
+            # msg: "Rebooting"
             var: error
-            msg: "Rebooting"
               
             
