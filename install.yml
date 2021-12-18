@@ -1,0 +1,12 @@
+- name: user
+  hosts: demo
+    - name: Install links
+      apt:
+        name: links
+        state: absent
+        update-cache: yes
+      become: true  
+      register: error # регистрируем переменную для дебага
+    - debug:
+        var: error # вкл. дебаг и выводим в переменную 
+    #   #debugger: always

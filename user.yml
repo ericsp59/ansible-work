@@ -2,13 +2,6 @@
 - name: user
   hosts: demo
   # any_errors_fatal: true
-  # vars in group_vars/demo/vars.yml
-  # vars_files:
-  #   - ./my_vars.yml
-  # vars_prompt: ## Ввод переменной
-  #   - name: user
-  #     prompt: "Введите пользователя"
-  #     private: no
   tasks:
     - name: Preconfig block
       block:
@@ -26,21 +19,14 @@
         - name: Install links
           apt:
             name: links
-            # update-cache: yes
+            update-cache: yes
           register: error # регистрируем переменную для дебага
         - debug:
             var: error # вкл. дебаг и выводим в переменную 
         #   #debugger: always
-          ## команды в дебагере:
-            ## p task (Вывод task name)
-            ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
-            ## p task.vars (Вывод переменных в task)
-        # - name: Fail no FAILED
-        #   command: echo "FAILED"
-        #   register: command_result
-        #   failed_when: "'FAILED' in command_result.stdout"    
+
       become: true
-      when: ansible_facts['distribution'] == 'Ubu'  # Условия выполнения блока     
+      when: ansible_facts['distribution'] == 'Ubuntu'  # Условия выполнения блока     
       rescue: ## Обработка ошибки
         - name: Some error print
           debug:
