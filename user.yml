@@ -17,10 +17,10 @@
           user:
             name: "{{ user }}"
             state: absent
-          register: out # регистрируем переменную для дебага
+          register: out_user # регистрируем переменную для дебага
           register: error
         - debug:
-            var: out # вкл. дебаг и выводим в переменную 
+            var: out_user # вкл. дебаг и выводим в переменную 
 
         - name: Install links
           apt:
