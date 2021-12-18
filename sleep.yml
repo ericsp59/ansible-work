@@ -16,11 +16,11 @@
         - name: echo
           command: echo "Hello!! DONE"
 
-      - name: Check sleep status
-        async_status: 
-          jid: "{{ sleep.ansible_job_id }}"    
-        register: job_result
-        until: job_result.finished   
-        reties: 100
-        delay: 1
-        become: true
+    - name: Check sleep status
+      async_status: 
+        jid: "{{ sleep.ansible_job_id }}"    
+      register: job_result
+      until: job_result.finished   
+      reties: 100
+      delay: 1
+      become: true
