@@ -40,7 +40,7 @@
         #   register: command_result
         #   failed_when: "'FAILED' in command_result.stdout"    
       become: true
-      when: ansible_facts['distribution'] == 'Ubuntu'  # Условия выполнения блока     
+      when: ansible_facts['distribution'] == 'Ubu'  # Условия выполнения блока     
       rescue: ## Обработка ошибки
         - name: Some error print
           debug:
