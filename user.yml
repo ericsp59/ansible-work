@@ -1,6 +1,7 @@
 ---
 - name: user
   hosts: demo
+  # any_errors_fatal: true
   # vars in group_vars/demo/vars.yml
   # vars_files:
   #   - ./my_vars.yml
@@ -18,6 +19,7 @@
             name: "{{ user }}"
             state: absent
           register:  error # регистрируем переменную 
+          # ignore_errors: true
         # - debug:
         #     var: "{{ out.stdout }}" # вкл. дебаг и выводим в переменную 
 
@@ -33,6 +35,10 @@
             ## p task (Вывод task name)
             ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
             ## p task.vars (Вывод переменных в task)
+        - name: Fail no FAILED
+          command: echo "FAILED"
+          register: command_result
+          failed_when: "'FAILED' in command_result.stdout"    
       become: true      
       rescue: ## Обработка ошибки
         - name: Some error print
@@ -41,7 +47,6 @@
       always:
         - name: Reboot
           debug:
-            # msg: "Rebooting"
-            var: error
+            msg: "Rebooting"
               
             
