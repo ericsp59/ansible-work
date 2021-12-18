@@ -7,14 +7,20 @@
         - name: sleep
           command: /bin/sleep 15
           async: 1000
-          poll: 5
+          poll: 0
           become: true
-          register: out
+          register: sleep
         - debug:
-            var: out  
+            var: sleep  
 
         - name: echo
           command: echo "Hello!! DONE"
-          register: out
-        - debug:
-            var: out      
+
+      - name: Check sleep status
+        async_status: 
+          jid: "{{ sleep.ansible_job_id }}"    
+        register: job_result
+        until: job_result.finished   
+        reties: 100
+        delay: 1
+        become: true
