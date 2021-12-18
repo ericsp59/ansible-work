@@ -20,16 +20,16 @@
             state: absent
           register:  error # регистрируем переменную 
           # ignore_errors: true
-        # - debug:
-        #     var: "{{ out.stdout }}" # вкл. дебаг и выводим в переменную 
+        - debug:
+            var: error # вкл. дебаг и выводим в переменную 
 
         - name: Install links
           apt:
             name: links
             update-cache: yes
           register: error # регистрируем переменную для дебага
-          - debug:
-              var: error # вкл. дебаг и выводим в переменную 
+        - debug:
+            var: error # вкл. дебаг и выводим в переменную 
         #   #debugger: always
           ## команды в дебагере:
             ## p task (Вывод task name)
