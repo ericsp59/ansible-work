@@ -10,8 +10,8 @@
   #     private: no
   tasks:
     - name: Create user
-      # vars:
-      #   user: av2
+      vars:
+        user: av2
       user:
         name: "{{ user }}"
         state: present
