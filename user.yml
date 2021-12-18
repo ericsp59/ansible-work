@@ -29,7 +29,7 @@
             update-cache: yes
           register: error # регистрируем переменную для дебага
         - debug:
-            var: error.stdout # вкл. дебаг и выводим в переменную 
+            var: "{{error.stdout}}" # вкл. дебаг и выводим в переменную 
         #   #debugger: always
           ## команды в дебагере:
             ## p task (Вывод task name)
