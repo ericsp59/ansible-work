@@ -16,6 +16,8 @@
         name: "{{ user }}"
         state: present
       become: true
-      register: out # регистрируем переменную для дебага
-    - debug:
-        var: out # вкл. дебаг и выводим в переменную 
+    #   register: out # регистрируем переменную для дебага
+    # - debug:
+    #     var: out # вкл. дебаг и выводим в переменную 
+
+      debugger: always
