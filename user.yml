@@ -17,5 +17,5 @@
         state: present
       become: true
       register: out # регистрируем переменную для дебага
-     - debug:
+    - debug:
         var: out # вкл. дебаг и выводим в переменную 
