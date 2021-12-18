@@ -1,5 +1,6 @@
 - name: user
   hosts: demo
+  tasks:
     - name: Install links
       apt:
         name: links
