@@ -1,6 +1,11 @@
 ---
 - name: ping
-  hosts: xen
+  vars_prompt: ## Ввод переменной
+  - name: hosts
+    prompt: "Введите группу хостов"
+    private: no
+
+  hosts: "{{hosts}}"
   # vars in group_vars/demo/vars.yml
   # vars_files:
   #   - ./my_vars.yml
