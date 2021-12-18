@@ -41,6 +41,7 @@
       always:
         - name: Reboot
           debug:
+            var: error
             msg: "Rebooting"
               
             
