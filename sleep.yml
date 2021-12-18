@@ -8,5 +8,15 @@
       poll: 5
       become: true
       register: out
+    
+    - debug:
+        var: out  
+
+    - name: echo
+      command: echo "Hello!! DONE"
+      async: 1000
+      poll: 0
+      register: out
+
     - debug:
         var: out  
