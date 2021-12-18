@@ -17,27 +17,27 @@
           user:
             name: "{{ user }}"
             state: absent
-          register:  out # регистрируем переменную 
-        - debug:
-            var: "{{ out.stdout }}" # вкл. дебаг и выводим в переменную 
+          register:  error # регистрируем переменную 
+        # - debug:
+        #     var: "{{ out.stdout }}" # вкл. дебаг и выводим в переменную 
 
         - name: Install links
           apt:
             name: links
             update-cache: yes
-          register: out # регистрируем переменную для дебага
-        - debug:
-            var: "{{ out.stdout }}" # вкл. дебаг и выводим в переменную 
-          #debugger: always
+          register: error # регистрируем переменную для дебага
+        # - debug:
+        #     var: out # вкл. дебаг и выводим в переменную 
+        #   #debugger: always
           ## команды в дебагере:
             ## p task (Вывод task name)
             ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
             ## p task.vars (Вывод переменных в task)
       become: true      
-      # rescue: ## Обработка ошибки
-      #   - name: Some error print
-      #     debug:
-      #       var: error
+      rescue: ## Обработка ошибки
+        - name: Some error print
+          debug:
+            var: error
       always:
         - name: Reboot
           debug:
