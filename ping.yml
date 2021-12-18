@@ -1,6 +1,6 @@
 ---
-- name: user
-  hosts: demo
+- name: ping
+  hosts: xen
   # vars in group_vars/demo/vars.yml
   # vars_files:
   #   - ./my_vars.yml
@@ -9,17 +9,17 @@
   #     prompt: "Введите пользователя"
   #     private: no
   tasks:
-    - name: Create user
+    - name: Ping
       # vars:
       #   user: av2
-      user:
-        name: "{{ user }}"
-        state: present
-      become: true
+      ping:
+      #become: true # от root
     #   register: out # регистрируем переменную для дебага
     # - debug:
     #     var: out # вкл. дебаг и выводим в переменную 
 
       debugger: always
       ## команды в дебагере:
-        ## p (Вывод переменной)
+        ## p task (Вывод task name)
+        ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
+        ## p task.vars (Вывод переменных в task)
