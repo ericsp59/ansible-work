@@ -35,6 +35,7 @@
             ## p task (Вывод task name)
             ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
             ## p task.vars (Вывод переменных в task)
+      become: true      
       rescue: ## Обработка ошибки
         - name: Some error print
           debug:
