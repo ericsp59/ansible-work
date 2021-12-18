@@ -1,0 +1,8 @@
+- name: reboot
+  hosts: demo
+  tasks:
+    - name: reboot
+      shell: reboot
+      async: 1000
+      poll: 0
+      become: true
