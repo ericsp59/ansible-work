@@ -16,15 +16,6 @@
         - debug:
             var: error # вкл. дебаг и выводим в переменную 
 
-        - name: Install links
-          apt:
-            name: links
-            update-cache: yes
-          register: error # регистрируем переменную для дебага
-        - debug:
-            var: error # вкл. дебаг и выводим в переменную 
-        #   #debugger: always
-
       become: true
       when: ansible_facts['distribution'] == 'Ubuntu'  # Условия выполнения блока     
       rescue: ## Обработка ошибки

@@ -2,21 +2,19 @@
 - name: sleep
   hosts: demo
   tasks:
-    - name: sleep
-      command: /bin/sleep 15
-      async: 1000
-      poll: 5
-      become: true
-      register: out
-    
-    - debug:
-        var: out  
+    - name: Preconfig block
+      block:
+      - name: sleep
+        command: /bin/sleep 15
+        async: 1000
+        poll: 5
+        become: true
+        register: out
+      - debug:
+          var: out  
 
-    - name: echo
-      command: echo "Hello!! DONE"
-      async: 1000
-      poll: 0
-      register: out
-
-    - debug:
-        var: out  
+      - name: echo
+        command: echo "Hello!! DONE"
+        register: out
+      - debug:
+          var: out      
