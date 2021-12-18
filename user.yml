@@ -4,10 +4,10 @@
   # vars in group_vars/demo/vars.yml
   # vars_files:
   #   - ./my_vars.yml
-  vars_prompt:
-    - name: user
-      prompt: "Введите пользователя"
-      private: no
+  # vars_prompt: ## Ввод переменной
+  #   - name: user
+  #     prompt: "Введите пользователя"
+  #     private: no
   tasks:
     - name: Create user
       # vars:
@@ -15,4 +15,4 @@
       user:
         name: "{{ user }}"
         state: present
-      become: true  
+      become: true
