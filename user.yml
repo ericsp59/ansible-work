@@ -28,8 +28,8 @@
             name: links
             update-cache: yes
           register: error # регистрируем переменную для дебага
-        - debug:
-            var: error # вкл. дебаг и выводим в переменную 
+          - debug:
+              var: error # вкл. дебаг и выводим в переменную 
         #   #debugger: always
           ## команды в дебагере:
             ## p task (Вывод task name)
