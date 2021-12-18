@@ -23,16 +23,40 @@ _____________ user.yml__________________
 ---
 - name: user
   hosts: demo
-  vars_files:
-    - ./my_vars.yml 						# файлы с переменными
+  # vars in group_vars/demo/vars.yml
+  # vars_files:
+  #   - ./my_vars.yml
+  # vars_prompt: ## Ввод переменной
+  #   - name: user
+  #     prompt: "Введите пользователя"
+  #     private: no
   tasks:
-    - name: Create user
-			vars:											# блок с переменными
-        user: av2
-      user:
-        name: "{{ user }}"
-        state: present
-      become: true  
+    - name: Preconfig block
+      become: true
+      block:
+        - name: Create user
+          vars:
+            user: av3
+          user:
+            name: "{{ user }}"
+            state: absent
+          
+          register: out # регистрируем переменную для дебага
+        - debug:
+            var: out # вкл. дебаг и выводим в переменную 
+
+        - name: Install links
+          apt:
+            name: links
+            update-cache: yes
+          register: out # регистрируем переменную для дебага
+        - debug:
+            var: out # вкл. дебаг и выводим в переменную 
+          #debugger: always
+          ## команды в дебагере:
+            ## p task (Вывод task name)
+            ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
+            ## p task.vars (Вывод переменных в task)
 __________________________________________
 
 ansible-playbook -i hosts.ini --ask-pass  user.yml # Запустить playbook

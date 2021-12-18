@@ -9,19 +9,39 @@
   #     prompt: "Введите пользователя"
   #     private: no
   tasks:
-    - name: Create user
-      vars:
-        user: av2
-      user:
-        name: "{{ user }}"
-        state: present
-      become: true
-    #   register: out # регистрируем переменную для дебага
-    # - debug:
-    #     var: out # вкл. дебаг и выводим в переменную 
+    - name: Preconfig block
+      block:
+        - name: Create user
+          vars:
+            user: av3
+          user:
+            name: "{{ user }}"
+            state: absent
+          register: out # регистрируем переменную для дебага
+          register: error
+        - debug:
+            var: out # вкл. дебаг и выводим в переменную 
 
-      debugger: always
-      ## команды в дебагере:
-        ## p task (Вывод task name)
-        ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
-        ## p task.vars (Вывод переменных в task)
+        - name: Install links
+          apt:
+            name: links
+            update-cache: yes
+          register: out # регистрируем переменную для дебага
+          register: error
+        - debug:
+            var: out # вкл. дебаг и выводим в переменную 
+          #debugger: always
+          ## команды в дебагере:
+            ## p task (Вывод task name)
+            ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
+            ## p task.vars (Вывод переменных в task)
+      rescue: ## Обработка ошибки
+        - name: Some error print
+          debug:
+            var: error
+      always:
+        - name: Reboot
+          debug:
+            msg: "Rebooting"
+              
+            
