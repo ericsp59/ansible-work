@@ -1,0 +1,8 @@
+---
+- name: ping
+  hosts: zyxel
+  tasks:
+    - name: Ping
+      ping:
+      #debugger: always
+
