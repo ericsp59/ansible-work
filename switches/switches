@@ -1,0 +1,2 @@
+[zyxel] # группа серверов
+zyxel31 ansible_host=192.168.254.31 ansible_user=admin ansible_port=22
