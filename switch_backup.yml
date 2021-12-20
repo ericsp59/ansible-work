@@ -4,4 +4,4 @@
   tasks:
     - name: Ping
       net_ping:
-      dest: 192.168.254.31
+        dest: 192.168.254.31
