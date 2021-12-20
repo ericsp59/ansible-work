@@ -3,6 +3,5 @@
   hosts: zyxel
   tasks:
     - name: Ping
-      command: ping 192.168.254.32
-      #debugger: always
-
+      net_ping:
+      dest: 192.168.254.31
