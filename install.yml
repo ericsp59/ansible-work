@@ -1,10 +1,10 @@
 - name: user
-  hosts: demo
+  hosts: demo2
   tasks:
     - name: Install links
       apt:
         name: links
-        state: present
+        state: absent
         update-cache: yes
       become: true  
       register: out # регистрируем переменную для дебага
