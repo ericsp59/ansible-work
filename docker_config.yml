@@ -23,8 +23,7 @@
 
         - name: Add Docker’s official GPG key 
           apt_key:
-            url: "https://download.docker.com/linux/ubuntu/gpg"
-            file: /usr/share/keyrings/docker-archive-keyring.gpg
+            url: https://download.docker.com/linux/ubuntu/gpg
             state: present
 
         - name: set up the stable repository
