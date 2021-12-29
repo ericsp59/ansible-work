@@ -30,7 +30,7 @@
           apt_repository:
             repo: > 
               deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg]
-              https://download.docker.com/linux/ubuntu
+              https://download.docker.com/linux/ubuntu/dists
               {{ ansible_distribution_release }} stable
             state: present
             update_cache: yes
