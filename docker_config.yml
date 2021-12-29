@@ -9,19 +9,19 @@
             repo: " deb http://us.archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }} universe"
             state: present
 
-        - name: install additional packages   
+        - name: install additional packages
           apt:
-            name: 
+            name:
               - apt-transport-https
               - ca-certificates
               - curl
               - gnupg
               - lsb-release
-            state: present  
+            state: present
             update_cache: true
             cache_valid_time: 86400
 
-        - name: Add Docker’s official GPG key 
+        - name: Add Docker’s official GPG key
           apt_key:
             url: https://download.docker.com/linux/ubuntu/gpg
             keyring: /usr/share/keyrings/docker-archive-keyring.gpg
@@ -29,31 +29,30 @@
 
         - name: set up the stable repository
           apt_repository:
-            repo: > 
+            repo: >
               deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg]
               https://download.docker.com/linux/ubuntu
               {{ ansible_distribution_release }} stable
             state: present
             update_cache: true
             filename: docker
-          #debugger: always  
+          #debugger: always
 
-        - name: Install Docker Engine   
+        - name: Install Docker Engine
           apt:
             name:
-              - docker-ce  
+              - docker-ce
               - docker-ce-cli
               - containerd.io
-            state: present  
+            state: present
             update_cache: true
 
-        - name: testing that docker is installed and restarted   
+        - name: testing that docker is installed and restarted
           service:
             name: docker
             state: restarted
-            enabled: true              
+            enabled: true
 
-            
       become: true
 
     - name: Docker-compose install
@@ -62,7 +61,7 @@
           uri:
             url: "https://api.github.com/repos/docker/compose/releases/latest"
             body_format: json
-          register: page  
+          register: page
 
         - name: install the latest ver of Docker Compose
           get_url:
@@ -81,5 +80,4 @@
 
         - name: server reboot
           reboot:
-      become: true    
-   
+      become: true
