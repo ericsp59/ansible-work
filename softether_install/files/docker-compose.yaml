@@ -1,0 +1,26 @@
+version: '3'
+services:
+  softethervpn:
+    container_name: 'softethervpn'
+    image: siomiz/softethervpn
+    cap_add: 
+      - NET_ADMIN
+    environment:
+      - PSK=tZaUKoe4bAeWlUS41pDO
+      - "USERS=av:31Im3ZZDXP2cbwUXhrzH"
+      - SPW=xDJ8bWoMYWO#!Rb8b9UGyo
+      - HPW=4q45RxGVeADHv5Myg6Ld
+    restart: always
+    volumes:
+      - ./vpn_server.config:/opt/vpn_server.config
+    ports:
+      # L2TP/IPSec
+      - "500:500/udp"
+      - "4500:4500/udp"
+      - "1701:1701/tcp"
+      # OpenVPN/SSTP
+      - "443:443/tcp"
+      - "1194:1194/udp"
+      # SoftEther VPN (recommended by vendor)
+      - "5555:5555/tcp"
+      - "992:992/tcp"
