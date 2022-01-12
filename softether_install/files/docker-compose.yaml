@@ -11,8 +11,8 @@ services:
       - SPW=12345678
       - HPW=12345678
     restart: always
-    #volumes:
-    #  - ./vpn_server.config:/opt/vpn_server.config
+    volumes:
+      - /home/softethervpn/vpn_server.config:/opt/vpn_server.config
     ports:
       # L2TP/IPSec
       - "500:500/udp"

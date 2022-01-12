@@ -94,8 +94,13 @@
               src: files/docker-compose.yaml
               dest: /home/softethervpn
 
+        - name: copy server.config
+          copy:
+              src: files/vpn_server.config
+              dest: /home/softethervpn      
+
         - name: docker-compose up
           command: docker-compose -f /home/softethervpn/docker-compose.yaml up -d
 
-        - name: copy config from container
-          command: docker cp softethervpn:/usr/vpnserver/vpn_server.config ./         
+        #- name: copy config from container
+        #  command: docker cp softethervpn:/usr/vpnserver/vpn_server.config ./home/softethervpn/         
