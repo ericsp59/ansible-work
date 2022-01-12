@@ -90,6 +90,7 @@
             state: directory 
       
         - name: docker-compose up
-          community.docker.docker_compose:
-            project_src: ./files
-            files: docker-compose.yaml       
+          docker_compose:
+            project_src: /files
+            files: docker-compose.yaml
+            state: present       
