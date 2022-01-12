@@ -100,7 +100,7 @@
               dest: /home/softethervpn      
 
         - name: docker-compose up
-          command: docker-compose -f /home/softethervpn/docker-compose.yaml up -d
+          command: docker-compose -f /home/softethervpn/docker-compose.yaml up -d PSK=987654321 USERS=av:1234qwer SPW=12345678 HPW=12345678
 
         #- name: copy config from container
         #  command: docker cp softethervpn:/usr/vpnserver/vpn_server.config ./home/softethervpn/         

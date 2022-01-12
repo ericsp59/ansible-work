@@ -5,11 +5,11 @@ services:
     image: siomiz/softethervpn
     cap_add: 
       - NET_ADMIN
-    environment:
-      - PSK=12345678
-      - "USERS=av:1234qwer"
-      - SPW=12345678
-      - HPW=12345678
+    # environment:
+    #   - PSK=12345678
+    #   - "USERS=av:1234qwer"
+    #   - SPW=12345678
+    #   - HPW=12345678
     restart: always
     volumes:
       - /home/softethervpn/vpn_server.config:/opt/vpn_server.config
