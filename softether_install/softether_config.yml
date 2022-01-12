@@ -83,12 +83,11 @@
       become: true
 
     - name: Softether install
-      vars_files:
-        - ./vars/softether_vars.yml
       block:
         - name: сreate directory
-          path: /home/softethervpn
-          state: directory 
+          file:
+            path: /home/softethervpn
+            state: directory 
       
         - name: docker-compose up
           community.docker.docker_compose:
