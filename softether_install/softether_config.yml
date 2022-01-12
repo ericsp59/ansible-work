@@ -78,8 +78,8 @@
             groups: "docker"
             append: true
 
-        - name: server reboot
-          reboot:
+        #- name: server reboot
+        #  reboot:
       become: true
 
     - name: Softether install
@@ -88,9 +88,11 @@
           file:
             path: /home/softethervpn
             state: directory 
-      
+
+        - name: copy docker-compose
+          copy:
+              src: files/docker-compose.yaml
+              dest: /home/softethervpn
+
         - name: docker-compose up
-          docker_compose:
-            project_src: /files
-            files: docker-compose.yaml
-            state: present       
+          command: docker-compose -f /home/softethervpn/docker-compose.yaml up -d       

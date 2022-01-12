@@ -6,10 +6,10 @@ services:
     cap_add: 
       - NET_ADMIN
     environment:
-      - PSK=tZaUKoe4bAeWlUS41pDO
-      - "USERS=av:31Im3ZZDXP2cbwUXhrzH"
-      - SPW=xDJ8bWoMYWO#!Rb8b9UGyo
-      - HPW=4q45RxGVeADHv5Myg6Ld
+      - PSK=12345678
+      - "USERS=av:1234qwer"
+      - SPW=12345678
+      - HPW=12345678
     restart: always
     volumes:
       - ./vpn_server.config:/opt/vpn_server.config
