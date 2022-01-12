@@ -89,8 +89,8 @@
         - name: сreate directory
           path: /home/softethervpn
           state: directory 
-      block:
+      
         - name: docker-compose up
           community.docker.docker_compose:
-          project_src: ./files
-          files: docker-compose.yaml       
+            project_src: ./files
+            files: docker-compose.yaml       
