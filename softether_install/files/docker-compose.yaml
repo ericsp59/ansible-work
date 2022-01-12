@@ -6,7 +6,7 @@ services:
     cap_add: 
       - NET_ADMIN
     environment:
-      - PSK=12345678
+      #- PSK=12345678
       - "USERS=av:12345678"
       - SPW=12345678
       - HPW=12345678
