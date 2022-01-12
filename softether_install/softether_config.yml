@@ -100,6 +100,6 @@
               dest: /home/softethervpn      
 
         - name: docker-compose up
-          command: docker-compose -f /home/softethervpn/docker-compose.yaml up -d -e PSK=12345678
+          command: docker-compose -f /home/softethervpn/docker-compose.yaml up -d
 
 
