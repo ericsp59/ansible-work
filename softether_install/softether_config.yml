@@ -1,6 +1,6 @@
 ---
 - name: Preconfig
-  hosts: test
+  hosts: cirpk
   tasks:
     - name: Docker install
       block:
