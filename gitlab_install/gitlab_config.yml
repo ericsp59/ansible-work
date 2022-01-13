@@ -91,7 +91,7 @@
 
         - name: copy docker-compose
           copy:
-              src: docker-compose.yaml
+              src: ./docker-compose.yaml
               dest: /home/gitlab     
 
         - name: docker-compose up
