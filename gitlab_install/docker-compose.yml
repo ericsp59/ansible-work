@@ -15,14 +15,15 @@ services:
       - '/home/gitlab/config:/etc/gitlab'
       - '/home/gitlab/logs:/var/log/gitlab'
       - '/home/gitlab/data:/var/opt/gitlab'
+      - '/home/gitlab/data:/var/opt/gitlab'
     shm_size: '256m'
 
-  gitlab-runner:
-    image: gitlab/gitlab-runner:latest
-    restart: always
-    volumes:
-      - 'gitlab-runner-config:/etc/gitlab-runner'
-      - '/var/run/docker.sock:/var/run/docker.sock'
+#   gitlab-runner:
+#     image: gitlab/gitlab-runner:latest
+#     restart: always
+#     volumes:
+#       - 'gitlab-runner-config:/etc/gitlab-runner'
+#       - '/var/run/docker.sock:/var/run/docker.sock'
 
-volumes:
-  gitlab-runner-config:
+# volumes:
+#   gitlab-runner-config:
