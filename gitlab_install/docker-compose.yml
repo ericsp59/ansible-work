@@ -23,3 +23,6 @@ services:
     volumes:
       - 'gitlab-runner-config:/etc/gitlab-runner'
       - '/var/run/docker.sock:/var/run/docker.sock'
+
+volumes:
+  gitlab-runner-config:
