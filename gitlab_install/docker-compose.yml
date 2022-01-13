@@ -12,7 +12,7 @@ services:
       - '8929:8929'
       - '2224:22'
     volumes:
-      - '$GITLAB_HOME/config:/etc/gitlab'
-      - '$GITLAB_HOME/logs:/var/log/gitlab'
-      - '$GITLAB_HOME/data:/var/opt/gitlab'
+      - '/home/gitlab/config:/etc/gitlab'
+      - '/home/gitlab/logs:/var/log/gitlab'
+      - '/home/gitlab/data:/var/opt/gitlab'
     shm_size: '256m'
