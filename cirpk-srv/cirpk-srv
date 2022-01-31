@@ -1,7 +1,0 @@
-[xen]
-naboo ansible_host=10.0.10.6 ansible_user=root ansible_port=22
-coruscant ansible_host=10.0.10.4 ansible_user=root ansible_port=22
-[test]
-av-u-test ansible_host=192.168.50.17 ansible_user=av ansible_port=22
-[docker-srv]
-av-d-test ansible_host=192.168.50.22 ansible_user=av ansible_port=22
