@@ -13,6 +13,14 @@
         - name: ping hosts
           ping:
 
+    - name: Install packages
+      block:
+        - name: Install htop  
+          apt:
+            name: htop
+            state: present
+            update-cache: yes    
+
     # block:
     #   - name: Install htop
     #     apt:
