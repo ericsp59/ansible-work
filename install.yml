@@ -8,15 +8,16 @@
   become: true
 
   tasks:
-    - name: Ping
-      ping:
+    block:
+      - name: Ping hosts
+        ping:
 
-      block:
-        - name: Install htop
-          apt:
-            name: htop
-            state: present
-            update-cache: yes
+    block:
+      - name: Install htop
+        apt:
+          name: htop
+          state: present
+          update-cache: yes
 
 # - name: install links
 #   hosts: demo
