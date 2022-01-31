@@ -19,7 +19,13 @@
           apt:
             name: htop
             state: present
-            update-cache: yes    
+            update-cache: yes
+
+        - name: Install net-tools
+          apt:
+            name: net-tools
+            state: present
+            update-cache: yes        
 
     # block:
     #   - name: Install htop
