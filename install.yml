@@ -4,7 +4,7 @@
   - name: hosts
     prompt: "Enter the hosts group name"
     private: no
-  hosts: {{hosts}}
+  hosts: "{{hosts}}"
   become: true
 
   tasks:
