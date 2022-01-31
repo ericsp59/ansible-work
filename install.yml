@@ -1,5 +1,5 @@
 ---
-name: Preconfig
+- name: Preconfig
   # vars_prompt: ## Ввод переменной
   # - name: hosts
   #   prompt: "Enter the hosts group name"
@@ -13,10 +13,10 @@ name: Preconfig
       - name: Ping hosts
         ping:
 
-    block:
-      - name: Install htop
-        apt:
-          name: htop
-          state: present
-          update-cache: yes
+    # block:
+    #   - name: Install htop
+    #     apt:
+    #       name: htop
+    #       state: present
+    #       update-cache: yes
 
