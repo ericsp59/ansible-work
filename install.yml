@@ -1,13 +1,33 @@
-- name: user
-  hosts: demo2
+---
+- name: Preconfig
+  vars_prompt: ## Ввод переменной
+  - name: hosts
+    prompt: "Enter the hosts group name"
+    private: no
+  hosts: {{hosts}}
+  become: true
+
   tasks:
-    - name: Install links
-      apt:
-        name: links
-        state: absent
-        update-cache: yes
-      become: true  
-      register: out # регистрируем переменную для дебага
-    - debug:
-        var: out # вкл. дебаг и выводим в переменную 
-    #   #debugger: always
+    - name: Ping
+      ping:
+
+      block:
+        - name: Install htop
+          apt:
+            name: htop
+            state: present
+            update-cache: yes
+
+# - name: install links
+#   hosts: demo
+#   tasks:
+#     - name: Install links
+#       apt:
+#         name: links
+#         state: absent
+#         update-cache: yes
+#       become: true  
+#       register: out # регистрируем переменную для дебага
+#     - debug:
+#         var: out # вкл. дебаг и выводим в переменную 
+#     #   #debugger: always
