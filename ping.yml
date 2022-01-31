@@ -23,7 +23,7 @@
     # - debug:
     #     var: out # вкл. дебаг и выводим в переменную 
 
-      debugger: always
+      #debugger: always
       ## команды в дебагере:
         ## p task (Вывод task name)
         ## p task.args (Вывод аргументов задачи, котоые передавались в модуль)
