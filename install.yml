@@ -1,10 +1,11 @@
 ---
 - name: Preconfig
-  vars_prompt: ## Ввод переменной
-  - name: hosts
-    prompt: "Enter the hosts group name"
-    private: no
-  hosts: "{{hosts}}"
+  # vars_prompt: ## Ввод переменной
+  # - name: hosts
+  #   prompt: "Enter the hosts group name"
+  #   private: no
+  # hosts: "{{hosts}}"
+  hosts: demo
   become: true
 
   tasks:
