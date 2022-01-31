@@ -1,5 +1,5 @@
 ---
-- name: Preconfig
+name: Preconfig
   # vars_prompt: ## Ввод переменной
   # - name: hosts
   #   prompt: "Enter the hosts group name"
@@ -20,16 +20,3 @@
           state: present
           update-cache: yes
 
-# - name: install links
-#   hosts: demo
-#   tasks:
-#     - name: Install links
-#       apt:
-#         name: links
-#         state: absent
-#         update-cache: yes
-#       become: true  
-#       register: out # регистрируем переменную для дебага
-#     - debug:
-#         var: out # вкл. дебаг и выводим в переменную 
-#     #   #debugger: always
