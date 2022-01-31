@@ -1,17 +1,17 @@
 ---
 - name: Preconfig
-  # vars_prompt: ## Ввод переменной
-  # - name: hosts
-  #   prompt: "Enter the hosts group name"
-  #   private: no
-  # hosts: "{{hosts}}"
-  hosts: demo
-  # become: true
+  vars_prompt: ## Ввод переменной
+  - name: hosts
+    prompt: "Enter the hosts group name"
+    private: no
+  hosts: "{{hosts}}"
+  become: true
 
   tasks:
-    #block:
-    - name: Ping hosts
-      ping:
+    - name: Check hosts
+      block:
+        - name: ping hosts
+          ping:
 
     # block:
     #   - name: Install htop
